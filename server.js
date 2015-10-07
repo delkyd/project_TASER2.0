@@ -13,7 +13,7 @@ var http  = require('http').Server(app);
 var io = require('socket.io')(http);
 var Twit = require('twit');
 var stream;
-var DB = process.env.MONGOLAB_URI || 'mongodb://heroku_1mgn9dsf:9jv9c62p1e84nr5rdj4o7erlob@ds035683.mongolab.com:35683/heroku_1mgn9dsf';
+var DB = process.env.MONGOLAB_URI || 'mongodb://heroku_1b0xl586:1ioipbt3cf1cnkc6pi2r5da5dd@ds033018.mongolab.com:33018/heroku_1b0xl586';
 var port = process.env.PORT || 3000;
 
 //require('./public/js/twitter')
