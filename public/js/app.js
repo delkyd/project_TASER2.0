@@ -7,7 +7,7 @@ function init() {
 
 
 $(function() {
-	$("form").on("submit", function(e) {
+	$("youtubeform").on("submit", function(e) {
 		e.preventDefault();
 		console.log("got here 1")		
 

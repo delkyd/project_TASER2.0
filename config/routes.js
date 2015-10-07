@@ -28,6 +28,9 @@ app.get('/flickr', function(req, res){
 })
 
 
+
+
+
 app.get("/signup", usersController.getSignup );
 app.post("/signup", usersController.postSignup );
 

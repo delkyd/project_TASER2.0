@@ -15,7 +15,7 @@ var io = require('socket.io')(http);
 var Twit = require('twit');
 var stream;
 
-require('./public/js/twitter')
+//require('./public/js/twitter')
 
 var twitter = new Twit({
   consumer_key: "Hmb1QSex600W2AjRDjtS5wKJs",
@@ -43,6 +43,31 @@ app.use( passport.session() );
 app.use( flash() ); 
 
 
+io.on('connect', function(socket) {
+  console.log('attempt to logon')
+  socket.on('updateTerm', function (searchTerm) {
+    console.log('socket on updateterm', searchTerm);
+    socket.emit('updatedTerm', searchTerm);
+
+    // Start stream
+    if (stream) {
+      stream.stop();
+    }
+
+    stream = twitter.stream('statuses/filter', { track: searchTerm, language: 'en' });
+
+    stream.on('tweet', function (tweet) {
+      var data = {};
+      data.name = tweet.user.name;
+      data.screen_name = tweet.user.screen_name;
+      data.text = tweet.text;
+      data.user_profile_image = tweet.user.profile_image_url;
+      socket.emit('tweets', data);
+    });
+  });
+});	
+
+
 
 
 require( "./config/passport" )( passport );
@@ -54,5 +79,5 @@ app.use( function ( req, res, next ) {
 
 app.use( routes );
 
-app.listen( config.port );
+http.listen( config.port );
 console.log( "Listening on port: ", config.port );
