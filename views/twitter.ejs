@@ -1,11 +1,4 @@
 <body>
-  <h1>howdy</h1>
-
-  <form id='twitform'> 
-    <input type="text"> 
-    <input type="Submit" value="Submit">  
-  </form>
-
   <div id="tweet-container"></div>
 
   <script type="text/javascript">
@@ -22,9 +15,9 @@
       $('#tweet-container').prepend(html);
     });
 
-    $('#twitform').on('submit', function(){
+    $('form').on('submit', function(){
       event.preventDefault();
-      var search_term = $('#twitform input').val();
+      var search_term = $('#response').val();
       console.log('search_term', search_term);
       socket.emit('updateTerm', search_term);
     });
