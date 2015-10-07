@@ -27,6 +27,13 @@ app.get('/flickr', function(req, res){
     res.render('flickr')
 })
 
+app.get('/helpme', function(req, res){
+    res.render('helpme')
+})
+
+app.get('/tasergear', function(req, res){
+    res.render('tasergear')
+})
 
 
 
