@@ -1,3 +1,5 @@
+
+
  <html>
   <head>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -5,11 +7,12 @@
   <body>
     Search for <b>cats, dogs, cakes</b>, or anything else that takes your fancy :-)
     <br />
-    <input id="searchterm" />
+   <!--  <input id="searchterm" />
     <button id="search">search</button>
-    <div id="results"></div>
+    <div id="results"></div> -->
     <script>
-      $("#search").click(function(){
+      $("#search").on('submit', (function(e){
+        e.preventDefault()
         $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
         {
           tags: $("#searchterm").val(),
