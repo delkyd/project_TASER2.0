@@ -4,7 +4,6 @@ var mongoose = require( "mongoose" )
 var passport = require( "passport" )
 var flash = require( "connect-flash" )
 var ejsLayouts = require( "express-ejs-layouts" )
-var morgan = require( "morgan" )
 var cookieParser = require( "cookie-parser" )
 var bodyParser = require( "body-parser" )
 var session = require( "express-session" )
@@ -14,6 +13,8 @@ var http  = require('http').Server(app);
 var io = require('socket.io')(http);
 var Twit = require('twit');
 var stream;
+var DB = process.env.MONGOLAB_URI || 'mongodb://heroku_1mgn9dsf:9jv9c62p1e84nr5rdj4o7erlob@ds035683.mongolab.com:35683/heroku_1mgn9dsf';
+var port = process.env.PORT || 3000;
 
 //require('./public/js/twitter')
 
@@ -26,7 +27,6 @@ var twitter = new Twit({
 
 mongoose.connect( "mongodb://localhost/local-authentication-with-passport" ); 
 
-app.use( morgan( "dev" ) ); 
 app.use( cookieParser() );
 app.use( bodyParser() ); 
 
