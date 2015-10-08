@@ -26,7 +26,7 @@ var twitter = new Twit({
   access_token_secret: "G6t16z6I833qrCIOaZgsyJlOaQUOr6Clar5B0ShqN3d6h"
 });
 
-mongoose.connect( "mongodb://localhost/local-authentication-with-passport" ); 
+mongoose.connect( DB ); 
 
 app.use( cookieParser() );
 app.use( bodyParser() ); 
