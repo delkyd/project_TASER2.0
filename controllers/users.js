@@ -10,7 +10,7 @@ module.exports = {
   // POST /signup
   postSignup: function ( request, response ) {
     var signupStrategy = passport.authenticate('local-signup', {
-        successRedirect:'/',
+        successRedirect:'/index',
         failureRedirect:'/signup',
         failureFlash: true
       })
@@ -23,7 +23,7 @@ module.exports = {
   // POST /login 
     postLogin: function ( request, response ) {
     var loginProperty = passport.authenticate( 'local-login', {
-        successRedirect : '/',
+        successRedirect : '/index',
         failureRedirect : '/login',
         failureFlash : true
       });

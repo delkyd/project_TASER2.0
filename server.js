@@ -34,7 +34,7 @@ app.use( bodyParser() );
 app.set( "view engine", "ejs" );
 app.use( ejsLayouts );
 app.set( "views", "./views" );
-app.use( express.static( __dirname + "/public" ) );
+app.use( express.static( __dirname + "/public" ) );//tells all pages to reference the public folder
 app.engine('ejs', require('ejs').renderFile);
 
 

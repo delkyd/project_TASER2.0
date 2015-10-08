@@ -16,10 +16,14 @@ function authenticatedUser( req, res, next ) {
   }
 
   // Otherwise the request is always redirected to the home page
-  res.redirect( '/' );
+  res.redirect( '/index' );
 }
 
 app.get('/', function(req, res){
+    res.render('signup')
+})
+
+app.get('/index', function(req, res){
     res.render('index')
 })
 
@@ -34,8 +38,6 @@ app.get('/helpme', function(req, res){
 app.get('/tasergear', function(req, res){
     res.render('tasergear')
 })
-
-
 
 
 app.get("/signup", usersController.getSignup );
