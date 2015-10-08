@@ -5,10 +5,7 @@
     <script src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
-    <br />
-   <!--  <input id="searchterm" />
-    <button id="search">search</button>
-    <div id="results"></div> -->
+    <br />  
     <script>
       $("form").on("submit", function(e) {
     e.preventDefault();
@@ -21,8 +18,8 @@
         },
         function(data) {
           $.each(data.items, function(i,item){
-            $("<img/>").attr("src", item.media.m).prependTo("#results");
-            if ( i == 10 ) return false;
+            $("<img/>").attr("src", item.media.m).addClass("flicks animated fadeIn").prependTo("#flickrs");
+            if ( i ==7 ) return false;
           });
         });
       });
