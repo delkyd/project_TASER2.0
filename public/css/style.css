@@ -11,5 +11,13 @@
 
 .flicks {
 	width:280px;
+	height:280px;
+	padding:5px;
+}
+
+.rightboom {
+	width:200px;
+	height:75px;
+	background-image: url(/images/boomright.gif);
 }
 
