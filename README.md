@@ -2,9 +2,9 @@
 
 ##Project - Build [ TASER ]
 
-##Deployed Site: [https://taserisreal.herokuapp.com/](link)
+##Deployed Site: <https://taserisreal.herokuapp.com/>
 
-[ TASER ] is a website that allows a user to input a search term once and see how the rest of the world interacts with and perceives that term.  Specifically, once a search term is input we will populate a page with images, tweets, and audio/visuals that will create a 360 degree experience for our user.  
+[ TASER ] is a website that allows a user to input a search term once and see how the rest of the world interacts with and perceives that term.  Specifically, once a search term is input [ TASER ] populates a page with images, tweets, and audio/visuals that will create a 360 degree search experience for our user.  
 
 ###Strategy  
 
