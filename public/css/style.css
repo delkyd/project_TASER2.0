@@ -1,3 +1,15 @@
 .refresh {
 	border-color: black;
 }
+
+
+#tweet-container {
+    width:550px;
+    height: 360px;
+    overflow: hidden;
+}
+
+.flicks {
+	width:280px;
+}
+
