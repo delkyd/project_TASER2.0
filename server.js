@@ -64,6 +64,9 @@ io.on('connect', function(socket) {
       data.text = tweet.text;
       data.user_profile_image = tweet.user.profile_image_url;
       socket.emit('tweets', data);
+      setTimeout(function() {
+       socket.disconnect("DIE")
+     }, 3000);
     });
   });
 });	
