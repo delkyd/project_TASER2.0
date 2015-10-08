@@ -1,5 +1,8 @@
 .refresh {
 	border-color: black;
+	border-radius: 15px;
+	background-color: #FFA500;
+	color: black;
 }
 
 
