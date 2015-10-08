@@ -24,26 +24,82 @@ Connect to the following APIs in order to create this rich search experience for
 9. A user can clear their TASER search page and start a new TASER search
 10. A user can have their life changed by this incredible new way to approach the search experience
 
-###Models   
- There are two models:  
- 
-1. User model 
-2. Comment model 
 
 ###Wireframes  
 
 ![image](readme_picture.png)
 
+##Search
 
-##Thursday 
 
-1. Styling
-2. taser imgage after pressing search
-3. clear search results
-4. add detail to taser gear page
-5. test chat app from two computers
-6. clean up and finish readme
-7. rehearse presentation for Friday
+[TASER] begins with the search bar. A user inputs the term they want immerse themselves in and *Tases* it.s
+
+![image](search_display.png)
+
+The bar takes text as its input based on the type. After the user clicks the search button, the **submit** type and **search** value initializes the **response** id and begin a chain reaction initializing the 3 APIs. 
+
+![image](search_code.png)	
+
+##Twitter API
+
+
+![image](Screen Shot 2015-10-08 at 12.29.04 PM.png)
+
+####Initialize
+After setting up the libraries/frameworks our site depends on. Twitter's API begins by authenticating through a set of private user keys which allow our app to obtain data.	
+
+![image](twitter_keys.png)
+
+####Search
+The **submit** from above starts up the twitter form which starts by preventing the default action of the event from prematurely submitting information from various events. The response is then assigned a value which we use to search by changing the data to something useable in searchTerm. 
+
+![image](twitter_form.png)
+
+####Results
+Once socket is turned on and connected, the stream is started. Stream is tracked based on the search term. It is here that data is constanly being gathered with a timeout function cutting off the stream in order to limit tweets and make our display more readable. 
+
+![image](socket_works.png)
+
+Tweets are finally prepended in our tweet-container according to the information received
+
+![image](tweet_display.png)
+
+##Youtube API
+![image](youtube_ex.png)
+
+####Initializing
+Functioning much in the same way as the Twitter API, the Youtube code authenticates with a personal key and loads the selected version of the service.
+![image](you_keys.png)
+
+####Search
+Using JQUERY, the API receives its orders from the search form's **submit** input while simultaneously preventing the premature sending of information.
+![image](you_search.png)
+
+####Results
+Thhe query is then defined by the **response** ID and given a value to be searched by. 
+![image](you_results.png)
+
+Finally the request is executed with results determined by the results variable. The selected video is then displayed through an i-frame tag.
+
+
+
+
+
+##Flickr API
+
+####Search
+Unlike the API above, flickr doesn't need keys to access data. Using JQUERY, the API receives its orders from the search form's **submit** input. 
+
+It then obtains a photo stream via JSON. Results are checked by tags, which are based on the response ID. 
+
+![image](f_search.png)
+
+####Results
+Finally images populate the page, with the number of images based on a set number.
+
+![image](f_result.png) 
+
+
 
 
 
