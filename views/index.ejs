@@ -1,45 +1,41 @@
 <h1 class="w100 text-center animated tada">[ TASER ]</h1>
 
-
+<!-- This section is for the search bar area on top of the results -->
 <div class="row">
     <div class="col-md-3 text-right">
       <div id="right_light"></div>
     </div> 
     <div class="col-md-6">
-        <form action="#">
-            <p><input type="text" id="response" placeholder="Type something..." autocomplete="off" class="form-control" /></p>
+      <form action="#">
+          <p><input type="text" id="response" placeholder="Type something..." autocomplete="off" class="form-control" /></p>
 
-            <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
-        </form>
+          <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
+      </form>
     </div>
     <div class="col-md-3">
-
       <div id="left_light"></div>
       <a href="javascript:history.go(0)" class="refresh btn btn-danger">TASE Me Again!</a>
     </div>
 </div>
-<br/>
-<br/>
-<div class="row">
+<br/><br/>
 
+<!-- This section is where the first row of search results appear (youtube and twitter) -->
+<div class="row">
   <div class="col-md-6"> 
     <div id="results"></div>
   </div>
-
   <div class="col-md-6" id="tweet-container">
     <% include twitter %>
   </div>
-
 </div>
-<br/>
-<br/>
-<div class="row">
+<br/><br/>
 
+<!-- This section is where the flickr pictures appear -->
+<div class="row">
   <div class="col-md-12">
     <% include flickr %>
     <div id="flickrs"> </div>
   </div>
-
 </div>
 
 <script type="text/javascript" src="js/app.js"></script>

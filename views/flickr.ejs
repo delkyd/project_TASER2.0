@@ -1,5 +1,4 @@
-
-
+<!-- Controls Flickr interaction -->
  <html>
   <head>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -7,18 +6,18 @@
   <body>
     <br />  
     <script>
-      $("form").on("submit", function(e) {
-    e.preventDefault();
-    console.log("got here 2") 
-        $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-        {
-          tags: $("#response").val(),
-          tagmode: "any",
-          format: "json"
-        },
-        function(data) {
+      $("form").on( "submit", function(e) {
+      e.preventDefault();
+      console.log( "got here 2" ) 
+        $.getJSON( "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", // call to flickr and defines search parameters
+          {
+            tags: $( "#response" ).val(),
+            tagmode: "any",
+            format: "json"
+          },
+        function( data ) {
           $.each(data.items, function(i,item){
-            $("<img/>").attr("src", item.media.m).addClass("flicks animated fadeIn").prependTo("#flickrs");
+            $("<img/>").attr( "src", item.media.m ).addClass("flicks animated fadeIn").prependTo("#flickrs");
             if ( i ==7 ) return false;
           });
         });
