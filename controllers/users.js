@@ -1,6 +1,5 @@
 var passport = require( "passport" );
 
-
 module.exports = {
   // GET /signup
   getSignup: function ( request, response ) {
