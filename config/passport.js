@@ -1,18 +1,20 @@
-var LocalStrategy = require('passport-local').Strategy,
-	User = require('../models/User');
+var LocalStrategy = require( 'passport-local' ).Strategy
+var User = require('../models/User')
 	
 module.exports = function( passport ) {
-   passport.serializeUser( function( user, done ) {
+  // serialize user
+  passport.serializeUser( function( user, done ) {
       done( null, user.id );
-    });
-
+    } );
+  // deserialize user
     passport.deserializeUser( function( id, done ) {
       User.findById( id, function( err, user ) {
         done( err, user );
       });
     });
 
-  passport.use('local-login', new LocalStrategy({
+  // local login strategy through passport
+  passport.use( 'local-login', new LocalStrategy({
   	usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true
@@ -26,27 +28,28 @@ module.exports = function( passport ) {
       if ( !user ) return callback( null, false, req.flash( 'loginMessage', 'No user found.' ) );
 
       // Wrong password
-      if (!user.validPassword(password)) {
+      if ( !user.validPassword( password ) ) {
             return callback( null, false, req.flash( 'loginMessage', 'Oops! Wrong password.' ) );
         }
 
       return callback( null, user );
-    })
+    } )
   }))
 
-  passport.use( 'local-signup', new LocalStrategy({
+  // local signup strategy through passport, signup controller will go through this
+  passport.use( 'local-signup', new LocalStrategy( {
     usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true
 	}, function( req, email, password, callback ) {
-  process.nextTick(function() {
+  process.nextTick( function() {
     User.findOne({ 'local.email' :  email }, function( err, user ) {
       if ( err ) return callback( err );
       if ( user ) {
-        return callback(null, false, req.flash( 'signupMessage', 'This email is already used.' ) );
+        return callback( null, false, req.flash( 'signupMessage', 'This email is already used.' ) );
       } else {
-        var newUser            = new User();
-        newUser.local.email    = email;
+        var newUser = new User();
+        newUser.local.email = email;
         newUser.local.password = newUser.encrypt( password );
 
         newUser.save( function( err ) {
